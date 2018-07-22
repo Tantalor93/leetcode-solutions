@@ -10,7 +10,7 @@ class Solution846Spec extends Specification {
     def instance = new Solution846()
 
     @Unroll
-    def "has hand of straights"(int[] array, int size, def expect) {
+    def "has hand #array of straights of size [#size]"(int[] array, int size, def expect) {
         expect:
         instance.isNStraightHand(array, size) == expect
 

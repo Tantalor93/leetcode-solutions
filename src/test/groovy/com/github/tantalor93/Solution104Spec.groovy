@@ -10,19 +10,17 @@ class Solution104Spec extends Specification {
     def instance = new Solution104()
 
     @Unroll
-    def "should find max depth #expected of tree #treeArray"(Integer[] treeArray, int expected) {
-        given:
-        def tree = TreeNode.buildFromArray(treeArray)
+    def "should find max depth of tree [#tree]"(TreeNode tree, int expected) {
 
         expect:
         instance.maxDepth(tree) == expected
 
         where:
-        treeArray                     | expected
-        [3, 9, 20, null, null, 15, 7] | 3
-        [3, 9, 20]                    | 2
-        [3]                           | 1
-        []                            | 0
+        tree                                                                | expected
+        TreeNode.buildFromArray([3, 9, 20, null, null, 15, 7] as Integer[]) | 3
+        TreeNode.buildFromArray([3, 9, 20] as Integer[])                    | 2
+        TreeNode.buildFromArray([3] as Integer[])                           | 1
+        TreeNode.buildFromArray([] as Integer[])                            | 0
 
     }
 }

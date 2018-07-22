@@ -10,18 +10,15 @@ class Solution637Spec extends Specification {
     def instance = new Solution637()
 
     @Unroll
-    def "should calculate average of levels in binary tree #treeArray"(Integer[] treeArray, def expected) {
-        given:
-        TreeNode node = TreeNode.buildFromArray(treeArray)
-
+    def "should calculate average of levels in binary tree [#tree]"(TreeNode tree, def expected) {
         expect:
-        instance.averageOfLevels(node) == expected
+        instance.averageOfLevels(tree) == expected
 
         where:
-        treeArray                            | expected
-        [3, 9, 20, null, null, 15, 7]        | [3, 14.5, 11]
-        [2147483647, 2147483647, 2147483647] | [2147483647, 2147483647]
-        []                                   | []
-        [1]                                  | [1]
+        tree                                                                       | expected
+        TreeNode.buildFromArray([3, 9, 20, null, null, 15, 7] as Integer[])        | [3, 14.5, 11]
+        TreeNode.buildFromArray([2147483647, 2147483647, 2147483647] as Integer[]) | [2147483647, 2147483647]
+        TreeNode.buildFromArray([] as Integer[])                                   | []
+        TreeNode.buildFromArray([1] as Integer[])                                  | [1]
     }
 }

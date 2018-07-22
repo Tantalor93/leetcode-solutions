@@ -10,20 +10,16 @@ class Solution226Spec extends Specification {
     def instance = new Solution226()
 
     @Unroll
-    def "should invert tree #treeArray"(Integer[] treeArray, Integer[] expected) {
-        given:
-        def tree = TreeNode.buildFromArray(treeArray)
-        def expectedTree = TreeNode.buildFromArray(expected)
-
+    def "should invert tree [#tree]"(TreeNode tree, TreeNode expected) {
         expect:
-        instance.invertTree(tree) == expectedTree
+        instance.invertTree(tree) == expected
 
         where:
-        treeArray             | expected
-        [4, 2, 7, 1, 3, 6, 9] | [4, 7, 2, 9, 6, 3, 1]
-        []                    | []
-        [1]                   | [1]
-        [1, 3]                | [1, null, 3]
+        tree                                                        | expected
+        TreeNode.buildFromArray([4, 2, 7, 1, 3, 6, 9] as Integer[]) | TreeNode.buildFromArray([4, 7, 2, 9, 6, 3, 1] as Integer[])
+        TreeNode.buildFromArray([] as Integer[])                    | TreeNode.buildFromArray([] as Integer[])
+        TreeNode.buildFromArray([1] as Integer[])                   | TreeNode.buildFromArray([1] as Integer[])
+        TreeNode.buildFromArray([1, 3] as Integer[])                | TreeNode.buildFromArray([1, null, 3] as Integer[])
 
     }
 }
