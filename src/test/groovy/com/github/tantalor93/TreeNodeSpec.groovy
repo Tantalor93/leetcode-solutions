@@ -1,6 +1,7 @@
 package com.github.tantalor93
 
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class TreeNodeSpec extends Specification {
 
@@ -24,6 +25,43 @@ class TreeNodeSpec extends Specification {
 
         expect:
         node.toString() == "1 2 3 4 6 7 9"
+    }
 
+    @Unroll
+    def "build from array"(Integer[] array, TreeNode expected) {
+        expect:
+        TreeNode.buildFromArray(array) == expected
+
+        where:
+        array                                                | expected
+        [3, 5, null, null, null]                             | node()
+        [6, 4, 10, 1, null, 7, null, null, null, null, null] | node2()
+        [5, 4, 6, 3, null, null, 7, null, null, null]        | node3()
+        []                                                   | null
+        [1]                                                  | new TreeNode(1)
+    }
+
+    def node() {
+        def node = new TreeNode(3)
+        node.left = new TreeNode(5)
+        return node
+    }
+
+    def node2() {
+        def node = new TreeNode(6)
+        node.left = new TreeNode(4)
+        node.right = new TreeNode(10)
+        node.left.left = new TreeNode(1)
+        node.right.left = new TreeNode(7)
+        return node
+    }
+
+    def node3() {
+        def node = new TreeNode(5)
+        node.left = new TreeNode(4)
+        node.left.left = new TreeNode(3)
+        node.right = new TreeNode(6)
+        node.right.right = new TreeNode(7)
+        return node
     }
 }
