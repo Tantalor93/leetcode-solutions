@@ -14,10 +14,12 @@ public class TreeNode {
         this.val = x;
     }
 
-    static TreeNode buildFromInorderAndPreorder(int[] preorder, int[] inorder) {
-        return new Solution105().buildTree(preorder, inorder);
-    }
 
+    /**
+     * builds tree nodes from Integer array
+     * @param array of ints and nulls
+     * @return {@link TreeNode} representation of array
+     */
     static TreeNode buildFromArray(Integer[] array) {
         if (array.length == 0) return null;
         final List<TreeNode> nodes =
@@ -64,12 +66,12 @@ public class TreeNode {
         return stringBuilder.toString().trim();
     }
 
-    void toString(TreeNode treeNode, StringBuilder strb) {
+    private void toString(TreeNode treeNode, StringBuilder strb) {
         if (treeNode == null) {
             return;
         }
         toString(treeNode.left, strb);
-        strb.append(treeNode.val + " ");
+        strb.append(treeNode.val).append(" ");
         toString(treeNode.right, strb);
 
     }

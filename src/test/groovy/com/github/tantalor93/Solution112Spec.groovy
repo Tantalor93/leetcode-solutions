@@ -2,34 +2,25 @@ package com.github.tantalor93
 
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class Solution112Spec extends Specification {
-    
+
     @Shared
     def instance = new Solution112()
 
-    def "test path sum"() {
-        setup:
-        def root = new TreeNode(5)
-        def node4 = new TreeNode(4)
-        def node11 = new TreeNode(11)
-        def node7 = new TreeNode(7)
-        def node2 = new TreeNode(2)
-        def node8 = new TreeNode(8)
-        def node13 = new TreeNode(13)
-        def node4r = new TreeNode(4)
-        def node1 = new TreeNode(1)
-
-        root.left = node4
-        root.right = node8
-        node4.left = node11
-        node8.left = node13
-        node8.right = node4r
-        node11.left = node7
-        node11.right = node2
-        node4r.right = node1
+    @Unroll
+    def "test path sum #sum of tree #treeArray"(Integer[] treeArray, int sum, def expected) {
+        given:
+        def tree = TreeNode.buildFromArray(treeArray)
 
         expect:
-        instance.hasPathSum(root, 22) == true
+        instance.hasPathSum(tree, sum) == expected
+
+        where:
+        treeArray                                             | sum | expected
+        [5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1] | 22  | true
+        [3, 9, 2, 20]                                         | 1   | false
+        [3, 9, 2, 20]                                         | 5   | true
     }
 }

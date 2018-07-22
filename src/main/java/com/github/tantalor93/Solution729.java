@@ -32,7 +32,7 @@ public class Solution729 {
             int left;
             int right;
 
-            public Tuple(int left, int right) {
+            Tuple(int left, int right) {
                 this.left = left;
                 this.right = right;
             }

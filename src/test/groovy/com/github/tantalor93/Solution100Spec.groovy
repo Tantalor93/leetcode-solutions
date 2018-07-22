@@ -10,21 +10,20 @@ class Solution100Spec extends Specification {
     def instance = new Solution100()
 
     @Unroll
-    def "is same tree"(int[] preorderLeft, int[] inorderLeft, int[] preorderRight, int[] inorderRight, def expected) {
+    def "is same tree #left #right #expected"(Integer[] left, Integer[] right, def expected) {
         given:
-        def leftTree = TreeNode.buildFromInorderAndPreorder(preorderLeft, inorderLeft)
-        def rightTree = TreeNode.buildFromInorderAndPreorder(preorderRight, inorderRight)
+        def leftTree = TreeNode.buildFromArray(left)
+        def rightTree = TreeNode.buildFromArray(right)
 
         expect:
         instance.isSameTree(leftTree, rightTree) == expected
 
         where:
-        preorderLeft     | inorderLeft      | preorderRight    | inorderRight     | expected
-        [1, 2, 3]        | [2, 1, 3]        | [1, 2, 3]        | [2, 1, 3]        | true
-        [1, 2]           | [2, 1]           | [1, 2]           | [1, 2]           | false
-        []               | []               | []               | []               | true
-        [6, 4, 1, 10, 7] | [1, 4, 6, 7, 10] | [6, 4, 1, 10, 7] | [6, 4, 1, 10, 7] | false
-
+        left          | right                        | expected
+        [1, 2, 3]     | [1, 2, 3]                    | true
+        [1, 2]        | [1, null, 2]     | false
+        []            | []                           | true
+        [6, 4, 10, 1] | [6, 4, 10, 1, null, null, 7] | false
 
     }
 }

@@ -2,40 +2,26 @@ package com.github.tantalor93
 
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class Solution637Spec extends Specification {
-    
+
     @Shared
     def instance = new Solution637()
 
-    def "should calculate average of levels in binary tree"() {
-        setup:
-        TreeNode root = new TreeNode(3)
-        TreeNode node9 = new TreeNode(9)
-        TreeNode node20 = new TreeNode(20)
-        TreeNode node15 = new TreeNode(15)
-        TreeNode node7 = new TreeNode(7)
-
-        root.left = node9
-        root.right = node20
-        node20.left = node15
-        node20.right = node7
+    @Unroll
+    def "should calculate average of levels in binary tree #treeArray"(Integer[] treeArray, def expected) {
+        given:
+        TreeNode node = TreeNode.buildFromArray(treeArray)
 
         expect:
-        instance.averageOfLevels(root) == [3, 14.5, 11]
-    }
+        instance.averageOfLevels(node) == expected
 
-    def "should calculate average of levels in binary tree - overflow"() {
-        setup:
-        TreeNode root = new TreeNode(2147483647)
-        TreeNode node1 = new TreeNode(2147483647)
-        TreeNode node2 = new TreeNode(2147483647)
-
-
-        root.left = node1
-        root.right = node2
-
-        expect:
-        instance.averageOfLevels(root) == [2147483647.0,2147483647.0]
+        where:
+        treeArray                            | expected
+        [3, 9, 20, null, null, 15, 7]        | [3, 14.5, 11]
+        [2147483647, 2147483647, 2147483647] | [2147483647, 2147483647]
+        []                                   | []
+        [1]                                  | [1]
     }
 }

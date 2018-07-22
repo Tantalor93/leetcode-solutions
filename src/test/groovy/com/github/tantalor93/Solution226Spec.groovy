@@ -2,38 +2,28 @@ package com.github.tantalor93
 
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class Solution226Spec extends Specification {
 
     @Shared
     def instance = new Solution226()
 
-    def "should invert tree"() {
-        setup:
-        def node = new TreeNode(4)
-        def node1 = new TreeNode(2)
-        def node2 = new TreeNode(7)
-        def node3 = new TreeNode(1)
-        def node4 = new TreeNode(3)
-        def node5 = new TreeNode(6)
-        def node6 = new TreeNode(9)
-
-        node.left = node1
-        node.right = node2
-        node.left.left = node3
-        node.left.right = node4
-        node.right.left = node5
-        node.right.right = node6
+    @Unroll
+    def "should invert tree #treeArray"(Integer[] treeArray, Integer[] expected) {
+        given:
+        def tree = TreeNode.buildFromArray(treeArray)
+        def expectedTree = TreeNode.buildFromArray(expected)
 
         expect:
-        def tree = instance.invertTree(node)
-        tree == node
-        tree.left == node2
-        tree.right == node1
-        tree.left.left == node6
-        tree.left.right == node5
-        tree.right.left == node4
-        tree.right.right == node3
+        instance.invertTree(tree) == expectedTree
+
+        where:
+        treeArray             | expected
+        [4, 2, 7, 1, 3, 6, 9] | [4, 7, 2, 9, 6, 3, 1]
+        []                    | []
+        [1]                   | [1]
+        [1, 3]                | [1, null, 3]
 
     }
 }

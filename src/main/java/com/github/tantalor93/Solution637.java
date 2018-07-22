@@ -33,10 +33,10 @@ public class Solution637 {
     public List<Double> averageOfLevels(TreeNode root) {
         List<Tuple> list = new ArrayList<>();
         goAvg(root, 0, list);
-        return list.stream().map(e -> (double)e.sum/(double)e.n).collect(Collectors.toList());
+        return list.stream().map(e -> e.sum / e.n).collect(Collectors.toList());
     }
 
-    public void goAvg(TreeNode node, int level, List<Tuple> list) {
+    private void goAvg(TreeNode node, int level, List<Tuple> list) {
         if(node == null) return;
         if(list.size() < level+1) {
             list.add(new Tuple(0,0));

@@ -33,12 +33,12 @@ class TreeNodeSpec extends Specification {
         TreeNode.buildFromArray(array) == expected
 
         where:
-        array                                                | expected
-        [3, 5, null, null, null]                             | node()
-        [6, 4, 10, 1, null, 7, null, null, null, null, null] | node2()
-        [5, 4, 6, 3, null, null, 7, null, null, null]        | node3()
-        []                                                   | null
-        [1]                                                  | new TreeNode(1)
+        array                       | expected
+        [3, 5]                      | node()
+        [6, 4, 10, 1, null, 7]      | node2()
+        [5, 4, 6, 3, null, null, 7] | node3()
+        []                          | null
+        [1]                         | new TreeNode(1)
     }
 
     def node() {
