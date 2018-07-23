@@ -1,0 +1,26 @@
+package com.github.tantalor93
+
+import spock.lang.Shared
+import spock.lang.Specification
+import spock.lang.Unroll
+
+class Solution20Spec extends Specification {
+
+    @Shared
+    def instance = new Solution20()
+
+    @Unroll
+    def "is valid parentheses in #string"(def string, def expected) {
+        expect:
+        instance.isValid(string) == expected
+
+        where:
+        string   | expected
+        "()"     | true
+        "()[]{}" | true
+        "(]"     | false
+        "([)]"   | false
+        "{[]}"   | true
+        "{[]}"   | true
+    }
+}
