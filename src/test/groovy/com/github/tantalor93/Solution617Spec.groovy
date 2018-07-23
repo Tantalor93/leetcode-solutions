@@ -1,10 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class Solution617Spec extends Specification {
+class Solution617Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution617()
@@ -15,11 +14,11 @@ class Solution617Spec extends Specification {
         instance.mergeTrees(t1, t2) == expected
 
         where:
-        t1                                                 | t2                                                                | expected
-        TreeNode.buildFromArray([1, 3, 2, 5] as Integer[]) | TreeNode.buildFromArray([2, 1, 3, null, 4, null, 7] as Integer[]) | TreeNode.buildFromArray([3, 4, 5, 5, 4, null, 7] as Integer[])
-        TreeNode.buildFromArray([] as Integer[])           | TreeNode.buildFromArray([] as Integer[])                          | TreeNode.buildFromArray([] as Integer[])
-        TreeNode.buildFromArray([1] as Integer[])          | TreeNode.buildFromArray([] as Integer[])                          | TreeNode.buildFromArray([1] as Integer[])
-        TreeNode.buildFromArray([1, 3, 2] as Integer[])    | TreeNode.buildFromArray([1] as Integer[])                         | TreeNode.buildFromArray([2, 3, 2] as Integer[])
+        t1                    | t2                                   | expected
+        newTree([1, 3, 2, 5]) | newTree([2, 1, 3, null, 4, null, 7]) | newTree([3, 4, 5, 5, 4, null, 7])
+        newTree([])           | newTree([])                          | newTree([])
+        newTree([1])          | newTree([])                          | newTree([1])
+        newTree([1, 3, 2])    | newTree([1])                         | newTree([2, 3, 2])
     }
 
 }

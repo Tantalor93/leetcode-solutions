@@ -1,10 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class Solution34Spec extends Specification {
+class Solution34Spec extends SolutionSpecification {
 
     @Shared
     def instace = new Solution34()

@@ -1,10 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class Solution224Spec extends Specification {
+class Solution224Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution224()

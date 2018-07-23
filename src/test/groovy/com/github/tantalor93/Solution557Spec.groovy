@@ -1,9 +1,9 @@
 import com.github.tantalor93.Solution557
+import com.github.tantalor93.SolutionSpecification
 import spock.lang.Shared
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class Solution557Spec extends Specification {
+class Solution557Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution557()

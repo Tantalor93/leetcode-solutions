@@ -1,10 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class Solution83Spec extends Specification {
+class Solution83Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution83()
@@ -17,11 +16,11 @@ class Solution83Spec extends Specification {
         instance.deleteDuplicates(list) == expected
 
         where:
-        list                                         | expected
-        ListNode.fromArray([1, 1, 2] as int[])       | ListNode.fromArray([1, 2] as int[])
-        ListNode.fromArray([1, 1, 2, 3, 3] as int[]) | ListNode.fromArray([1, 2, 3] as int[])
-        ListNode.fromArray([1, 2, 3] as int[])       | ListNode.fromArray([1, 2, 3] as int[])
-        ListNode.fromArray([] as int[])              | ListNode.fromArray([] as int[])
-        ListNode.fromArray([1] as int[])             | ListNode.fromArray([1] as int[])
+        list                     | expected
+        newList([1, 1, 2])       | newList([1, 2])
+        newList([1, 1, 2, 3, 3]) | newList([1, 2, 3])
+        newList([1, 2, 3])       | newList([1, 2, 3])
+        newList([])              | newList([])
+        newList([1])             | newList([1])
     }
 }

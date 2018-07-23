@@ -1,10 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class Solution50Spec extends Specification {
+class Solution50Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution50()
@@ -12,7 +11,7 @@ class Solution50Spec extends Specification {
     @Unroll
     def "should raise #x to power #n"(double x, int n, double expected) {
         expect:
-        instance.myPow(x,n).trunc(3) == expected.trunc(3)
+        instance.myPow(x, n).trunc(3) == expected.trunc(3)
 
         where:
         x   | n  | expected

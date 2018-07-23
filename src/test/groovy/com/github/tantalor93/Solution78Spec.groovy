@@ -1,9 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 
-class Solution78Spec extends Specification {
+
+class Solution78Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution78()

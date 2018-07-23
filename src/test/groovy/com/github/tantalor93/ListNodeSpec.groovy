@@ -1,14 +1,13 @@
 package com.github.tantalor93
 
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class ListNodeSpec extends Specification {
+class ListNodeSpec extends SolutionSpecification {
 
     @Unroll
     def "should construct list from array #array"(int[] array, ListNode expected) {
         expect:
-        ListNode.fromArray(array) == expected
+        newList(array) == expected
 
         where:
         array     | expected

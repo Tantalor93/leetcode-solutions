@@ -1,9 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 
-class Solution677Spec extends Specification {
+
+class Solution677Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution677.MapSum()

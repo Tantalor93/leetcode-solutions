@@ -1,10 +1,10 @@
 package com.github.tantalor93
 
-import spock.lang.Specification
+
 import spock.lang.Unroll
 
 
-class Solution729Spec extends Specification {
+class Solution729Spec extends SolutionSpecification {
 
     @Unroll
     def "should book"(List<Tuple> intervals, List<Boolean> expected) {

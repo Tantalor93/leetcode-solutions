@@ -1,9 +1,9 @@
 package com.github.tantalor93
 
-import spock.lang.Specification
+
 import spock.lang.Unroll
 
-class TreeNodeSpec extends Specification {
+class TreeNodeSpec extends SolutionSpecification {
 
     def "toString inorder"() {
 
@@ -30,7 +30,7 @@ class TreeNodeSpec extends Specification {
     @Unroll
     def "build from array"(Integer[] array, TreeNode expected) {
         expect:
-        TreeNode.buildFromArray(array) == expected
+        newTree(array) == expected
 
         where:
         array                       | expected

@@ -1,10 +1,9 @@
 package com.github.tantalor93
 
 import spock.lang.Shared
-import spock.lang.Specification
 import spock.lang.Unroll
 
-class Solution105Spec extends Specification {
+class Solution105Spec extends SolutionSpecification {
 
     @Shared
     def instance = new Solution105()
@@ -27,8 +26,8 @@ class Solution105Spec extends Specification {
         thrown(IllegalArgumentException)
 
         where:
-        preorder | inorder
-        [3, 9, 20, 15] | [9, 3, 15, 20, 7]
+        preorder          | inorder
+        [3, 9, 20, 15]    | [9, 3, 15, 20, 7]
         [9, 3, 15, 20, 7] | [9, 3, 15, 20, 6]
 
     }
@@ -39,6 +38,6 @@ class Solution105Spec extends Specification {
         node.right = new TreeNode(20)
         node.right.left = new TreeNode(15)
         node.right.right = new TreeNode(7)
-        return  node
+        return node
     }
 }
