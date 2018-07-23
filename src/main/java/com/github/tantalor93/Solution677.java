@@ -14,7 +14,7 @@ Input: insert("apple", 3), Output: Null
 Input: sum("ap"), Output: 3
 Input: insert("app", 2), Output: Null
 Input: sum("ap"), Output: 5*/
-public class Solution667 {
+public class Solution677 {
 
     class MapSum {
 

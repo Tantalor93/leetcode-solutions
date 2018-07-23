@@ -3,10 +3,10 @@ package com.github.tantalor93
 import spock.lang.Shared
 import spock.lang.Specification
 
-class Solution667Spec extends Specification {
+class Solution677Spec extends Specification {
 
     @Shared
-    def instance = new Solution667.MapSum()
+    def instance = new Solution677.MapSum()
 
     def "test"() {
         setup:
