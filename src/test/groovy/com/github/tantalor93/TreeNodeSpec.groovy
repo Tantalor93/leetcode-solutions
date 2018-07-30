@@ -5,26 +5,13 @@ import spock.lang.Unroll
 
 class TreeNodeSpec extends SolutionSpecification {
 
-    def "toString inorder"() {
-
-        setup:
-        def node = new TreeNode(4)
-        def node1 = new TreeNode(2)
-        def node2 = new TreeNode(7)
-        def node3 = new TreeNode(1)
-        def node4 = new TreeNode(3)
-        def node5 = new TreeNode(6)
-        def node6 = new TreeNode(9)
-
-        node.left = node1
-        node.right = node2
-        node.left.left = node3
-        node.left.right = node4
-        node.right.left = node5
-        node.right.right = node6
-
+    def "toString inorder"(def tree, def expected) {
         expect:
-        node.toString() == "1 2 3 4 6 7 9"
+        tree.toString() == expected
+
+        where:
+        tree | expected
+        node5() | "1 2 3 4 6 7 9"
     }
 
     @Unroll
@@ -33,12 +20,14 @@ class TreeNodeSpec extends SolutionSpecification {
         newTree(array) == expected
 
         where:
-        array                       | expected
-        [3, 5]                      | node()
-        [6, 4, 10, 1, null, 7]      | node2()
-        [5, 4, 6, 3, null, null, 7] | node3()
-        []                          | null
-        [1]                         | new TreeNode(1)
+        array                             | expected
+        [1, 2, null, 3, null, 4, null, 5] | node4()
+        [3, 5]                            | node()
+        [6, 4, 10, 1, null, 7]            | node2()
+        [5, 4, 6, 3, null, null, 7]       | node3()
+        []                                | null
+        [1]                               | new TreeNode(1)
+        [4, 2, 7, 1, 3, 6, 9]             | node5()
     }
 
     def node() {
@@ -62,6 +51,26 @@ class TreeNodeSpec extends SolutionSpecification {
         node.left.left = new TreeNode(3)
         node.right = new TreeNode(6)
         node.right.right = new TreeNode(7)
+        return node
+    }
+
+    def node4() {
+        def node = new TreeNode(1)
+        node.left = new TreeNode(2)
+        node.left.left = new TreeNode(3)
+        node.left.left.left = new TreeNode(4)
+        node.left.left.left.left = new TreeNode(5)
+        return node
+    }
+
+    def node5() {
+        def node = new TreeNode(4)
+        node.left = new TreeNode(2)
+        node.right = new TreeNode(7)
+        node.left.left = new TreeNode(1)
+        node.left.right = new TreeNode(3)
+        node.right.left = new TreeNode(6)
+        node.right.right = new TreeNode(9)
         return node
     }
 }

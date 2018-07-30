@@ -20,7 +20,7 @@ public class TreeNode {
      * @param array of ints and nulls
      * @return {@link TreeNode} representation of array
      */
-    static TreeNode buildFromArray(Integer[] array) {
+    static TreeNode buildFromArray(final Integer[] array) {
         if (array.length == 0) return null;
         final List<TreeNode> nodes =
                 Arrays.stream(array)
@@ -31,13 +31,24 @@ public class TreeNode {
                             return null;
                         })
                         .collect(Collectors.toList());
-        for (int i = 0; i < nodes.size(); i++) {
-            if (nodes.get(i) != null) {
-                if (2 * i + 1 < nodes.size()) {
-                    nodes.get(i).left = nodes.get(2 * i + 1);
+
+        boolean[] used = new boolean[array.length];
+        used[0] = true;
+
+        for (int i = 0; i < array.length; i++) {
+            if (nodes.get(i) == null) continue;
+            for (int j = 0; j < used.length; j++) {
+                if (!used[j]) {
+                    nodes.get(i).left = nodes.get(j);
+                    used[j] = true;
+                    break;
                 }
-                if (2 * i + 2 < nodes.size()) {
-                    nodes.get(i).right = nodes.get(2 * i + 2);
+            }
+            for (int j = 0; j < used.length; j++) {
+                if (!used[j]) {
+                    nodes.get(i).right = nodes.get(j);
+                    used[j] = true;
+                    break;
                 }
             }
         }
