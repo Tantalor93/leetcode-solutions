@@ -72,18 +72,19 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        final StringBuilder stringBuilder = new StringBuilder();
-        toString(this, stringBuilder);
-        return stringBuilder.toString().trim();
+        return (this.val + " " + toString(this)).trim();
     }
 
-    private void toString(TreeNode treeNode, StringBuilder strb) {
-        if (treeNode == null) {
-            return;
-        }
-        toString(treeNode.left, strb);
-        strb.append(treeNode.val).append(" ");
-        toString(treeNode.right, strb);
+    private String toString(final TreeNode node) {
+        if (node == null) return "";
+        String s = "";
 
+        if (node.left != null || node.right != null) {
+            s += node.left == null ? "null " : node.left.val + " ";
+            s += node.right == null ? "null " : node.right.val + " ";
+        }
+        s += toString(node.left);
+        s += toString(node.right);
+        return s;
     }
 }
