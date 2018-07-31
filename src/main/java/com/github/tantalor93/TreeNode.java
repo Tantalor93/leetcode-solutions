@@ -1,8 +1,10 @@
 package com.github.tantalor93;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class TreeNode {
@@ -72,19 +74,30 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return (this.val + " " + toString(this)).trim();
-    }
-
-    private String toString(final TreeNode node) {
-        if (node == null) return "";
-        String s = "";
-
-        if (node.left != null || node.right != null) {
-            s += node.left == null ? "null " : node.left.val + " ";
-            s += node.right == null ? "null " : node.right.val + " ";
+        final Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(this);
+        final StringBuilder stringBuilder = new StringBuilder();
+        while(!queue.isEmpty()) {
+            TreeNode poll = queue.poll();
+            if(poll == null) stringBuilder.append("null").append(" ");
+            else {
+                stringBuilder.append(poll.val).append(" ");
+                queue.offer(poll.left);
+                queue.offer(poll.right);
+            }
         }
-        s += toString(node.left);
-        s += toString(node.right);
-        return s;
+
+        final String s = stringBuilder.toString();
+        final String[] split = s.split(" ");
+        int i;
+        for(i = split.length -1 ; i >=0 ; i--) {
+            if(!split[i].equals("null")) {
+                i++;
+                break;
+            }
+        }
+        String[] strings = Arrays.copyOfRange(split, 0, i);
+        String collect = Arrays.stream(strings).collect(Collectors.joining(" "));
+        return collect;
     }
 }

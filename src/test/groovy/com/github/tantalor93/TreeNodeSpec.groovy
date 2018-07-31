@@ -12,12 +12,13 @@ class TreeNodeSpec extends SolutionSpecification {
 
         where:
         tree            | expected
-        node()          | "3 5 null"
-        node2()         | "6 4 10 1 null 7 null"
+        node()          | "3 5"
+        node2()         | "6 4 10 1 null 7"
         node3()         | "5 4 6 3 null null 7"
-        node4()         | "1 2 null 3 null 4 null 5 null"
+        node4()         | "1 2 null 3 null 4 null 5"
         node5()         | "4 2 7 1 3 6 9"
         new TreeNode(0) | "0"
+        node6()         | "1 2 3 null null 4 5"
     }
 
     @Unroll
@@ -77,6 +78,15 @@ class TreeNodeSpec extends SolutionSpecification {
         node.left.right = new TreeNode(3)
         node.right.left = new TreeNode(6)
         node.right.right = new TreeNode(9)
+        return node
+    }
+
+    def node6() {
+        def node = new TreeNode(1)
+        node.left = new TreeNode(2)
+        node.right = new TreeNode(3)
+        node.right.left = new TreeNode(4)
+        node.right.right = new TreeNode(5)
         return node
     }
 }
