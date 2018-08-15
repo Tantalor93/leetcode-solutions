@@ -9,9 +9,9 @@ class Solution50Spec extends SolutionSpecification {
     def instance = new Solution50()
 
     @Unroll
-    def "should raise #x to power #n"(double x, int n, double expected) {
+    def "should raise #x to power #n"() {
         expect:
-        instance.myPow(x, n).trunc(3) == expected.trunc(3)
+        instance.myPow(x, n).trunc(3) == (expected as double).trunc(3)
 
         where:
         x   | n  | expected

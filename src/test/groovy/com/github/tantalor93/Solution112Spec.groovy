@@ -9,7 +9,7 @@ class Solution112Spec extends SolutionSpecification {
     def instance = new Solution112()
 
     @Unroll
-    def "test path sum #sum of tree [#tree]"(TreeNode tree, int sum, def expected) {
+    def "test path sum #sum of tree [#tree]"() {
         expect:
         instance.hasPathSum(tree, sum) == expected
 

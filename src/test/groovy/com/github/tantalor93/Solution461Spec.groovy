@@ -9,7 +9,7 @@ class Solution461Spec extends SolutionSpecification {
     def instance = new Solution461()
 
     @Unroll
-    def "should find hamming distance of #x and #y"(int x, int y, int expected) {
+    def "should find hamming distance of #x and #y"() {
 
         expect:
         instance.hammingDistance(x, y) == expected

@@ -17,7 +17,7 @@ class Solution304Spec extends SolutionSpecification {
     def instance = new Solution304.NumMatrix(matrix)
 
     @Unroll
-    def "should find sum of range (#t) in matrix"(Tuple t, def expected) {
+    def "should find sum of range (#t) in matrix"() {
 
         expect:
         instance.sumRegion(t.get(0), t.get(1), t.get(2), t.get(3)) == expected

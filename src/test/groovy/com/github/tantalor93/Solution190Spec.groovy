@@ -7,7 +7,7 @@ class Solution190Spec extends SolutionSpecification {
     @Shared
     def instance = new Solution190()
 
-    def "should reverse bits of #n"(def n, def expected) {
+    def "should reverse bits of #n"() {
         expect:
         instance.reverseBits(n) == expected
 

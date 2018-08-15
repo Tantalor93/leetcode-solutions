@@ -9,7 +9,7 @@ class Solution7Spec extends SolutionSpecification {
     def instance = new Solution7()
 
     @Unroll
-    def "should reverse digits in integer #n"(def n, def expected) {
+    def "should reverse digits in integer #n"() {
         expect:
         instance.reverse(n) == expected
 

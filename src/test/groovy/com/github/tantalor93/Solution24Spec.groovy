@@ -9,7 +9,7 @@ class Solution24Spec extends SolutionSpecification {
     private instance = new Solution24()
 
     @Unroll
-    def "should swap pairs in list #list"(ListNode list, ListNode expected) {
+    def "should swap pairs in list #list"() {
         expect:
         instance.swapPairs(list) == expected
 

@@ -9,7 +9,7 @@ class Solution9Spec extends SolutionSpecification {
     def instance = new Solution9()
 
     @Unroll
-    def "should check if number #x is palindrome"(int x, def expected) {
+    def "should check if number #x is palindrome"() {
         expect:
         instance.isPalindrome(x) == expected
 

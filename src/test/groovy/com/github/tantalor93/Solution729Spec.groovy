@@ -7,7 +7,7 @@ import spock.lang.Unroll
 class Solution729Spec extends SolutionSpecification {
 
     @Unroll
-    def "should book"(List<Tuple> intervals, List<Boolean> expected) {
+    def "should book"() {
         setup:
         def calendar = new Solution729.MyCalendar()
 

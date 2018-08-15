@@ -9,7 +9,7 @@ class Solution28Spec extends SolutionSpecification {
     def instance = new Solution28()
 
     @Unroll
-    def "should try to find #needle in #haystack"(def needle, def haystack, def expected) {
+    def "should try to find #needle in #haystack"() {
         expect:
         instance.strStr(haystack, needle) == expected
 

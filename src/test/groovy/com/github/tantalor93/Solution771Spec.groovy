@@ -9,7 +9,7 @@ class Solution771Spec extends SolutionSpecification {
     def instance = new Solution771()
 
     @Unroll
-    def "should find jewels #jewels in stones #stones"(def jewels, def stones, def expected) {
+    def "should find jewels #jewels in stones #stones"() {
         expect:
         instance.numJewelsInStones(jewels, stones) == expected
 

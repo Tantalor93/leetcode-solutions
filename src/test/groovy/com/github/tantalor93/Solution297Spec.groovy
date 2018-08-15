@@ -8,7 +8,7 @@ class Solution297Spec extends SolutionSpecification {
     def instance = new Solution297()
 
     @Unroll
-    def "should serialize binary tree [#tree]"(def tree, def expected) {
+    def "should serialize binary tree [#tree]"() {
         expect:
         instance.serialize(tree) == expected
 

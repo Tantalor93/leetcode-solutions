@@ -9,7 +9,7 @@ class Solution139Spec extends SolutionSpecification {
     def instance = new Solution139()
 
     @Unroll
-    def "word #w can be segmented into array #array"(def w, def array, def expected) {
+    def "word #w can be segmented into array #array"() {
         expect:
         instance.wordBreak(w, array) == expected
 

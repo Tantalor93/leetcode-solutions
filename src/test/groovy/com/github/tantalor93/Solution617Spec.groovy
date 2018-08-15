@@ -9,7 +9,7 @@ class Solution617Spec extends SolutionSpecification {
     def instance = new Solution617()
 
     @Unroll
-    def "should merge tree #t1 with tree #t2"(def t1, def t2, def expected) {
+    def "should merge tree #t1 with tree #t2"() {
         expect:
         instance.mergeTrees(t1, t2) == expected
 

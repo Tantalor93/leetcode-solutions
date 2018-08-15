@@ -9,10 +9,10 @@ class Solution34Spec extends SolutionSpecification {
     def instace = new Solution34()
 
     @Unroll
-    def "should find first and last position of element #num in array #array"(int[] array, int num, int[] expected) {
+    def "should find first and last position of element #num in array #array"() {
 
         expect:
-        instace.searchRange(array, num) == expected
+        instace.searchRange(array as int[], num) == expected as int[]
 
         where:
         array               | num | expected

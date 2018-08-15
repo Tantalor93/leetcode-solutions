@@ -9,9 +9,9 @@ class Solution36Spec extends SolutionSpecification {
     def instance = new Solution36()
 
     @Unroll
-    def "is valid sudoku"(char[][] sudoku, boolean isValid) {
+    def "is valid sudoku"() {
         expect:
-        instance.isValidSudoku(sudoku) == isValid
+        instance.isValidSudoku(sudoku as char[][]) == isValid
 
         where:
         sudoku          | isValid

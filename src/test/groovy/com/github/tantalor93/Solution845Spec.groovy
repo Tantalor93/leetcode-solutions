@@ -9,9 +9,9 @@ class Solution845Spec extends SolutionSpecification {
     def instance = new Solution845()
 
     @Unroll
-    def "should find longest mountain for input"(int[] input, def expected) {
+    def "should find longest mountain for input"() {
         expect:
-        instance.longestMountain(input) == expected
+        instance.longestMountain(input as int[]) == expected
 
         where:
         input                             | expected

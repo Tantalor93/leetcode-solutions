@@ -9,7 +9,7 @@ class Solution21Spec extends SolutionSpecification {
     def instance = new Solution21()
 
     @Unroll
-    def "merge two lists [#list1] [#list2]"(def list1, def list2, def expected) {
+    def "merge two lists [#list1] [#list2]"() {
         expect:
         instance.mergeTwoLists(list1, list2) == expected
 

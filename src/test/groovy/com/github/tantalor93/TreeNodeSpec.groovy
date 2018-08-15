@@ -6,7 +6,7 @@ import spock.lang.Unroll
 class TreeNodeSpec extends SolutionSpecification {
 
     @Unroll
-    def "toString inorder [#tree]"(def tree, def expected) {
+    def "toString inorder [#tree]"() {
         expect:
         tree.toString() == expected
 
@@ -22,7 +22,7 @@ class TreeNodeSpec extends SolutionSpecification {
     }
 
     @Unroll
-    def "build from array #array"(Integer[] array, TreeNode expected) {
+    def "build from array #array"() {
         expect:
         newTree(array) == expected
 

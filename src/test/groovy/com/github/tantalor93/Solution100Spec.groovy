@@ -9,7 +9,7 @@ class Solution100Spec extends SolutionSpecification {
     def instance = new Solution100()
 
     @Unroll
-    def "is same tree left=[#left] right=[#right]"(TreeNode left, TreeNode right, def expected) {
+    def "is same tree left=[#left] right=[#right]"() {
 
         expect:
         instance.isSameTree(left, right) == expected

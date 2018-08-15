@@ -9,7 +9,7 @@ class Solution104Spec extends SolutionSpecification {
     def instance = new Solution104()
 
     @Unroll
-    def "should find max depth of tree [#tree]"(TreeNode tree, int expected) {
+    def "should find max depth of tree [#tree]"() {
 
         expect:
         instance.maxDepth(tree) == expected

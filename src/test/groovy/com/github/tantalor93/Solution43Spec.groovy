@@ -9,7 +9,7 @@ class Solution43Spec extends SolutionSpecification {
     def instance = new Solution43()
 
     @Unroll
-    def "should multiply #num1 and #num2"(String num1, String num2, String expected) {
+    def "should multiply #num1 and #num2"() {
 
         expect:
         instance.multiply(num1, num2) == expected

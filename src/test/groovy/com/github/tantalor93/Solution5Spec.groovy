@@ -9,7 +9,7 @@ class Solution5Spec extends SolutionSpecification {
     def instance = new Solution5()
 
     @Unroll
-    def "longest palindromic substring in string #s"(def s, def expected) {
+    def "longest palindromic substring in string #s"() {
         expect:
         instance.longestPalindrome(s) == expected
 

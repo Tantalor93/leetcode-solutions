@@ -18,9 +18,9 @@ class Solution105Spec extends SolutionSpecification {
 
 
     @Unroll
-    def "should not be able to build tree from inorder and preorder traversals"(int[] preorder, int[] inorder) {
+    def "should not be able to build tree from inorder and preorder traversals"() {
         when:
-        instance.buildTree(preorder, inorder)
+        instance.buildTree(preorder as int[], inorder as int[])
 
         then:
         thrown(IllegalArgumentException)

@@ -9,7 +9,7 @@ class Solution557Spec extends SolutionSpecification {
     def instance = new Solution557()
 
     @Unroll
-    def "should reverse #words"(def words, def expected) {
+    def "should reverse #words"() {
         expect:
         instance.reverseWords(words) == expected
 

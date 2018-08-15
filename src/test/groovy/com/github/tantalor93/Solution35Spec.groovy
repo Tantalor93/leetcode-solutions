@@ -9,9 +9,9 @@ class Solution35Spec extends SolutionSpecification {
     def instance = new Solution35()
 
     @Unroll
-    def "should find insert position for #num in array #array"(int[] array, int num, int expected) {
+    def "should find insert position for #num in array #array"() {
         expect:
-        instance.searchInsert(array, num) == expected
+        instance.searchInsert(array as int[], num) == expected
 
         where:
         array        | num | expected

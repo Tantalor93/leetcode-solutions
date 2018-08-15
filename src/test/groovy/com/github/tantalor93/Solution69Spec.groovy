@@ -9,7 +9,7 @@ class Solution69Spec extends SolutionSpecification {
     def instance = new Solution69()
 
     @Unroll
-    def "should calculate sqrt of #x"(int x, int expected) {
+    def "should calculate sqrt of #x"() {
         expect:
         instance.mySqrt(x) == expected
 

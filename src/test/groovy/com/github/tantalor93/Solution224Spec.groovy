@@ -9,7 +9,7 @@ class Solution224Spec extends SolutionSpecification {
     def instance = new Solution224()
 
     @Unroll
-    def "should parse string #string and calculate result #expected"(def string, def expected) {
+    def "should parse string #string and calculate result #expected"() {
         expect:
         instance.calculate(string) == expected
 

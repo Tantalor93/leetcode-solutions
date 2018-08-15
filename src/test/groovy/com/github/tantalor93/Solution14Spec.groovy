@@ -8,9 +8,9 @@ class Solution14Spec extends SolutionSpecification {
     def instance = new Solution14()
 
     @Unroll
-    def "should find longest common prefix of #strings"(String[] strings, String expected) {
+    def "should find longest common prefix of #strings"() {
         expect:
-        instance.longestCommonPrefix(strings) == expected
+        instance.longestCommonPrefix(strings as String[]) == expected
 
         where:
         strings                      | expected

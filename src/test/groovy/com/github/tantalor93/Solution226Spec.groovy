@@ -9,7 +9,7 @@ class Solution226Spec extends SolutionSpecification {
     def instance = new Solution226()
 
     @Unroll
-    def "should invert tree [#tree]"(TreeNode tree, TreeNode expected) {
+    def "should invert tree [#tree]"() {
         expect:
         instance.invertTree(tree) == expected
 

@@ -5,7 +5,7 @@ import spock.lang.Unroll
 class ListNodeSpec extends SolutionSpecification {
 
     @Unroll
-    def "should construct list from array #array"(int[] array, ListNode expected) {
+    def "should construct list from array #array"() {
         expect:
         newList(array) == expected
 
@@ -17,7 +17,7 @@ class ListNodeSpec extends SolutionSpecification {
     }
 
     @Unroll
-    def "should properly build String from list #listNode"(ListNode listNode, String s) {
+    def "should properly build String from list #listNode"() {
         expect:
         listNode.toString() == s
 

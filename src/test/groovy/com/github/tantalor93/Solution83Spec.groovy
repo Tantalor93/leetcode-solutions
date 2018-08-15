@@ -9,7 +9,7 @@ class Solution83Spec extends SolutionSpecification {
     def instance = new Solution83()
 
     @Unroll
-    def "should delete all duplicates of list #list"(ListNode list, ListNode expected) {
+    def "should delete all duplicates of list #list"() {
         given:
 
         expect:

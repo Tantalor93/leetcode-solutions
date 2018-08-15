@@ -9,7 +9,7 @@ class Solution637Spec extends SolutionSpecification {
     def instance = new Solution637()
 
     @Unroll
-    def "should calculate average of levels in binary tree [#tree]"(TreeNode tree, def expected) {
+    def "should calculate average of levels in binary tree [#tree]"() {
         expect:
         instance.averageOfLevels(tree) == expected
 

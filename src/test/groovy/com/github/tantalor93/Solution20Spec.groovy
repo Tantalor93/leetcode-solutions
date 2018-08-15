@@ -9,7 +9,7 @@ class Solution20Spec extends SolutionSpecification {
     def instance = new Solution20()
 
     @Unroll
-    def "is valid parentheses in #string"(def string, def expected) {
+    def "is valid parentheses in #string"() {
         expect:
         instance.isValid(string) == expected
 

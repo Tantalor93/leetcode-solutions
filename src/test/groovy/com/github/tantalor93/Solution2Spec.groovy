@@ -9,7 +9,7 @@ class Solution2Spec extends SolutionSpecification {
     def instance = new Solution2()
 
     @Unroll
-    def "add #num1 with #num2"(def num1, def num2, def expected) {
+    def "add #num1 with #num2"() {
         expect:
         instance.addTwoNumbers(num1, num2) == expected
 

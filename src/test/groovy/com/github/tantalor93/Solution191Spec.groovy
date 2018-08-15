@@ -9,7 +9,7 @@ class Solution191Spec extends SolutionSpecification {
     def instance = new Solution191()
 
     @Unroll
-    def "should count hamming weight of #n"(def n, def expected) {
+    def "should count hamming weight of #n"() {
         expect:
         instance.hammingWeight(n) == expected
 

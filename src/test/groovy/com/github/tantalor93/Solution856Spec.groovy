@@ -9,7 +9,7 @@ class Solution856Spec extends SolutionSpecification {
     def instance = new Solution856()
 
     @Unroll
-    def "should calculate score of #s"(def s, def expected) {
+    def "should calculate score of #s"() {
         expect:
         instance.scoreOfParentheses(s) == expected
 
