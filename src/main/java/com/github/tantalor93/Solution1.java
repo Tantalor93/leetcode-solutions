@@ -1,5 +1,8 @@
 package com.github.tantalor93;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /*Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
@@ -14,11 +17,14 @@ return [0, 1].*/
 public class Solution1 {
 
     public int[] twoSum(int[] nums, int target) {
-        for(int i = 0; i < nums.length; i++) {
-            for(int j = 0; j < nums.length; j++) {
-                if(i == j) continue;
-                if(nums[i]+nums[j] == target) return new int[]{i,j};
+        var map = new HashMap<Integer, Integer>();
+        for(var i = 0; i < nums.length; i++) {
+            var complement = map.get(target - nums[i]);
+            if (complement != null) {
+                return new int[] { i, complement };
             }
+            map.put(nums[i], i);
+
         }
         return null;
     }

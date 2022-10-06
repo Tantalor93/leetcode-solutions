@@ -13,56 +13,50 @@ Explanation: 342 + 465 = 807.
  */
 public class Solution2 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int trans = 0;
-
-        ListNode result = null;
-        ListNode current = null;
-
-        ListNode l1Current = l1;
-        ListNode l2Current = l2;
-
-        while(l1Current != null || l2Current != null || trans != 0){
-            if(l1Current == null && l2Current == null) {
-                current.next = new ListNode(trans);
-                current = current.next;
-            }
-            else if(l1Current != null && l2Current == null) {
-                current.next = new ListNode((l1Current.val+trans)%10);
-                current = current.next;
-            }
-            else if(l2Current != null && l1Current == null) {
-                current.next = new ListNode((l2Current.val+trans)%10);
-                current = current.next;
-            }
-            else {
-
-                ListNode newNode = new ListNode((l1Current.val+l2Current.val+trans)%10);
-
-
-
-                if(result == null) {
-                    current = newNode;
-                    result = current;
-                } else {
-                    current.next = newNode;
-                    current = current.next;
+        if(l1 == null || l2 == null) {
+            return l1 == null? l2 : l1;
+        }
+        ListNode start = null;
+        var carry = 0;
+        var it1 = l1;
+        var it2 = l2;
+        ListNode prev = null;
+        while(it1 != null || it2 != null) {
+            if(it1 != null && it2 != null) {
+                var n = new ListNode((it1.val + it2.val+carry)%10);
+                carry = (it1.val+it2.val+carry)/10;
+                if(start == null) {
+                    start = n;
                 }
+                if(prev != null) {
+                    prev.next = n;
+                }
+                prev = n;
+                it1 = it1.next;
+                it2 = it2.next;
             }
-
-            if(((l1Current == null)? 0 : l1Current.val) + ((l2Current == null)? 0 : l2Current.val) + trans>= 10) {
-                trans = 1;
+            if(it1 != null && it2 == null) {
+                var n = new ListNode((it1.val +carry)%10);
+                carry = (it1.val+carry)/10;
+                if(prev != null) {
+                    prev.next = n;
+                }
+                prev = n;
+                it1 = it1.next;
             }
-            else {
-                trans = 0;
-            }
-
-            if(l1Current != null){
-                l1Current = l1Current.next;
-            }
-            if(l2Current != null){
-                l2Current = l2Current.next;
+            if(it2 != null && it1 == null) {
+                var n = new ListNode((it2.val +carry)%10);
+                carry = (it2.val+carry)/10;
+                if(prev != null) {
+                    prev.next = n;
+                }
+                prev = n;
+                it2 = it2.next;
             }
         }
-        return result;
+        if(carry != 0) {
+            prev.next = new ListNode(carry);
+        }
+        return start;
     }
 }

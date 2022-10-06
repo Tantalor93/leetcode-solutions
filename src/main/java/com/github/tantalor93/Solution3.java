@@ -17,23 +17,21 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 public class Solution3 {
 
     public int lengthOfLongestSubstring(String s) {
-        int res = 0;
-        for(int i = 0; i < s.length(); i++ ){
-            Set<Character> set = new HashSet<>();
-            int currRes = 0;
-            for(int j = i; j >= 0; j--) {
-                if(!set.contains(s.charAt(j))) {
-                    currRes++;
-                    set.add(s.charAt(j));
-                } else {
+        if(s.isEmpty()) {
+            return 0;
+        }
+        var max = 1;
+        for(var i = 0; i < s.length(); i++) {
+            var set = new HashSet<Character>();
+            for(var j=i; j >= 0; j--) {
+                var c = i-j+1;
+                if(set.contains(s.charAt(j))) {
                     break;
                 }
+                set.add(s.charAt(j));
+                max = Math.max(max, c);
             }
-            if(currRes > res) {
-                res= currRes;
-            }
-
         }
-        return res;
+        return max;
     }
 }

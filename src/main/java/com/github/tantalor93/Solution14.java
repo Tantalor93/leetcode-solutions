@@ -18,27 +18,22 @@ Explanation: There is no common prefix among the input strings.
 public class Solution14 {
 
     public String longestCommonPrefix(String[] strs) {
-        int minSizeOfWord = Integer.MAX_VALUE;
-        for(int i = 0; i < strs.length; i++) {
-            minSizeOfWord = (strs[i].length() < minSizeOfWord)? strs[i].length() : minSizeOfWord;
+        if(strs.length == 0) {
+            return "";
         }
-
-        boolean stop = false;
-        StringBuilder strb = new StringBuilder();
-        if(strs.length != 0) {
-            for(int i = 0; i < minSizeOfWord; i++) {
-                char c = strs[0].charAt(i);
-                for(int j = 0; j < strs.length; j++) {
-                    if(strs[j].charAt(i) != c) {
-                        stop = true;
-                        break;
-                    }
-                }
-
-                if(stop) break;
-                if(!stop) strb.append(c);
+        var shortestString = 0;
+        for(var i = 0; i < strs.length; i++) {
+            if(strs[shortestString].length() > strs[i].length()) {
+                shortestString = i;
             }
         }
-        return strb.toString();
+        for(var i = 0; i < strs[shortestString].length(); i++) {
+            for(var j = 0; j < strs.length; j++) {
+                if(strs[shortestString].charAt(i) != strs[j].charAt(i)) {
+                    return strs[shortestString].substring(0,i);
+                }
+            }
+        }
+        return strs[shortestString];
     }
 }
