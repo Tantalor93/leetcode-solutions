@@ -26,6 +26,7 @@ public class ListNode {
     @Override
     public String toString() {
         final StringBuilder strb = new StringBuilder();
+        strb.append("[");
         ListNode node = this;
         strb.append(node.val);
         node = node.next;
@@ -33,6 +34,7 @@ public class ListNode {
             strb.append(", ").append(node.val);
             node = node.next;
         }
+        strb.append("]");
         return strb.toString();
     }
 
