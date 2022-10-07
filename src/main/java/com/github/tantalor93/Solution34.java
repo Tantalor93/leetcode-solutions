@@ -18,49 +18,50 @@ Output: [-1,-1]
  */
 public class Solution34 {
     public int[] searchRange(int[] nums, int target) {
-        return searchRecursively(nums, 0, nums.length - 1, target);
-    }
+        var low = 0;
+        var high = nums.length-1;
+        var left = -1;
+        var right = -1;
+        while(low <= high) {
+            var mid = (low+high)/2;
 
-    private int[] searchRecursively(int[] nums, int left, int right, int target) {
-
-        int begin = -1;
-        int end = -1;
-
-        if (right >= left) {
-
-            int midIndex = (left + right) / 2;
-
-            int mid = nums[midIndex];
-
-
-            if (mid == target) {
-                int i = midIndex - 1;
-                for (; i >= 0; i--) {
-                    if (nums[i] != target) {
-                        break;
-                    }
+            if(nums[mid] == target) {
+                if(mid+1 >= nums.length) {
+                    right = mid;
+                    break;
+                } else if(mid+1 < nums.length && nums[mid+1] == target) {
+                    low = mid+1;
+                } else {
+                    right = mid;
+                    break;
                 }
-                begin = ++i;
-
-                int j = midIndex + 1;
-                for (; j < nums.length; j++) {
-                    if (nums[j] != target) {
-                        break;
-                    }
-                }
-                end = --j;
+            } else if(nums[mid] < target) {
+                low = mid+1;
+            } else if(nums[mid] > target) {
+                high = mid-1;
             }
-
-
-            if (mid > target) {
-                return searchRecursively(nums, left, midIndex - 1, target);
-            }
-
-            if (mid < target)
-                return searchRecursively(nums, midIndex + 1, right, target);
         }
-
-        return new int[]{begin, end};
-
+        low = 0;
+        high = nums.length-1;
+        while(low <= high) {
+            var mid = (low+high)/2;
+            if(nums[mid] == target) {
+                if (mid-1 < 0) {
+                    left = mid;
+                    break;
+                } else if(mid-1 >= 0 && nums[mid-1] == target) {
+                    high = mid-1;
+                } else {
+                    left = mid;
+                    break;
+                }
+            } else if(nums[mid] < target) {
+                low = mid+1;
+            } else if(nums[mid] > target) {
+                high = mid-1;
+            }
+        }
+        return new int[]{left, right};
     }
+
 }

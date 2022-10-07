@@ -20,6 +20,7 @@ class Solution35Spec extends SolutionSpecification {
         [1, 3, 5, 6] | 7   | 4
         [1, 3, 5, 6] | 0   | 0
         []           | 1   | 0
+        [1, 3]       | 2   | 1
 
     }
 }

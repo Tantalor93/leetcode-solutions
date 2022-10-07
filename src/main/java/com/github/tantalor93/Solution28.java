@@ -21,22 +21,11 @@ For the purpose of this problem, we will return 0 when needle is an empty string
  */
 public class Solution28 {
     public int strStr(String haystack, String needle) {
-        if(needle.isEmpty()) return 0;
-        int res = -1;
-        //implemement naive way
-        for(int i = 0; i < haystack.length() - needle.length()+1; i++) {
-            int j = 0;
-            for(; j < needle.length(); j++) {
-
-                if(haystack.charAt(i+j) != needle.charAt(j)){
-                    break;
-                }
-            }
-            if(j == needle.length()) {
-                res = i;
-                break;
+        for(var i = 0; i< haystack.length(); i++) {
+            if(i+needle.length() <= haystack.length() && haystack.substring(i, i+needle.length()).equals(needle)) {
+                return i;
             }
         }
-        return res;
+        return -1;
     }
 }

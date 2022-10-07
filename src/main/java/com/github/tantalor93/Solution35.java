@@ -23,10 +23,31 @@ Output: 0
  */
 public class Solution35 {
     public int searchInsert(int[] nums, int target) {
-        int i = 0;
-        for(; i < nums.length; i++) {
-            if(nums[i] >= target) break;
+        var low = 0;
+        var high = nums.length-1;
+        while(low <= high) {
+            var mid = (low + high)/2;
+
+            if(nums[mid] == target) {
+                high = mid-1;
+            } else if(nums[mid] < target) {
+                if(mid+1 >= nums.length) {
+                    return nums.length;
+                } else if(nums[mid+1] > target) {
+                    return mid+1;
+                } else {
+                    low = mid+1;
+                }
+            } else if(nums[mid] > target) {
+                if(mid-1 < 0) {
+                    return 0;
+                } else if(nums[mid-1] < target) {
+                    return mid;
+                } else {
+                    high = mid-1;
+                }
+            }
         }
-        return i;
+        return low;
     }
 }
