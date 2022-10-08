@@ -41,7 +41,7 @@ public class Solution139 {
             if (s.substring(start).startsWith(word)) {
                 boolean go = go(s, start + word.length(), mem, wordDict);
                 if (go) return mem[start] = true;
-            }
+            }   
         }
         return mem[start] = false;
     }
