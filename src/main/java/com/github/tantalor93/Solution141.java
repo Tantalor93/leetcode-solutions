@@ -4,7 +4,7 @@ public class Solution141 {
 	public boolean hasCycle(ListNode head) {
 		var slow = head;
 		var fast = head;
-		while(fast.next != null){
+		while(fast != null && fast.next != null){
 			slow = slow.next;
 			fast = fast.next.next;
 			if(slow == fast) {
