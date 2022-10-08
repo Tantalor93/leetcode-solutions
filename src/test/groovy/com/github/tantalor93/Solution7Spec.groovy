@@ -14,10 +14,11 @@ class Solution7Spec extends SolutionSpecification {
         instance.reverse(n) == expected
 
         where:
-        n    | expected
-        123  | 321
-        -123 | -321
-        120  | 21
-        0    | 0
+        n          | expected
+        123        | 321
+        -123       | -321
+        120        | 21
+        0          | 0
+        1534236469 | 0
     }
 }

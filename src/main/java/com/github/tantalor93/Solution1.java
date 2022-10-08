@@ -1,8 +1,6 @@
 package com.github.tantalor93;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 /*Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
@@ -16,6 +14,8 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].*/
 public class Solution1 {
 
+    // postupne budu iterovat a pouziju hash mapu do ktere si budu ukladat mapovani hodnota => index, pro kazdy prvek se podivam do mapy,
+    // jestli jsem uz nevidel komplement = target-<soucasna_hodnota>, slozitost je O(n) a pametova je O(n)
     public int[] twoSum(int[] nums, int target) {
         var map = new HashMap<Integer, Integer>();
         for(var i = 0; i < nums.length; i++) {

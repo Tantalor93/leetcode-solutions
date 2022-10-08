@@ -12,6 +12,9 @@ Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
  */
 public class Solution2 {
+
+    // budu iterovat seznamy a pokazde spocitam carry=(val1+val2+carry)%10 a soucasnou hodnotu value=(val1+val2+carry)/10,
+    // slozitost je O(n) a pametova O(1)
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if(l1 == null || l2 == null) {
             return l1 == null? l2 : l1;

@@ -16,25 +16,25 @@ Example 3:
 Input: 120
 Output: 21
 Note:
-Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^(31),  2^(31 − 1)]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
  */
 public class Solution7 {
 
+    // funguje to tak ze vezmu kladnou hodnotu X a budu postupne pocitat res = res * 10 + (val%10) a zmensim val/10, dale musim kontrolovat ze mi
+    // operace res = res * 10 + (val%10) nepretece a to dokazu jednoduchym porovnanim jeste pred danou operaci res > Integer.MAX_VALUE/10
     public int reverse(int x) {
-        Integer obj = x;
-        boolean isNegative = false;
-        if (x < 0) {
-            isNegative = true;
-            obj = (-1) * obj;
+        var val = Math.abs(x);
+        var isnegative = x < 0;
+        var res = 0;
+        while(val > 0) {
+            if(res > Integer.MAX_VALUE/10) {
+                return 0;
+            }
+            var tmp = val%10;
+            res =res * 10 + tmp;
+            val /=10;
         }
-        String reverseDigits = new StringBuilder(obj.toString()).reverse().toString();
-        int reversedAsInt = 0;
-        try {
-            reversedAsInt = Integer.valueOf(((isNegative) ? "-" : "") + reverseDigits);
-        } catch (NumberFormatException ex) {
-            return 0;
-        }
-        return reversedAsInt;
+        return isnegative? -res : res;
     }
 
 }
