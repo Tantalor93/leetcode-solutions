@@ -1,4 +1,4 @@
-package com.github.tantalor93;
+package com.github.tantalor93.longestpalindromsubstr;
 
 public class Solution5 {
 

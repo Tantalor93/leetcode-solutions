@@ -1,4 +1,4 @@
-package com.github.tantalor93;
+package com.github.tantalor93.longestsubstringwithoutrepeat;
 
 import java.util.HashSet;
 import java.util.Set;

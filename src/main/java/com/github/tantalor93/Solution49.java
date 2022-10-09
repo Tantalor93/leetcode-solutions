@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Solution49 {
+
+	// v kazdem stringu si seradim pismena a pak ty stringy budu hazet do mapy a pocitat si pocet
 	public List<List<String>> groupAnagrams(String[] strs) {
 		Map<String, List<String>> res = new HashMap<>();
 		for(var i = 0; i < strs.length; i++) {

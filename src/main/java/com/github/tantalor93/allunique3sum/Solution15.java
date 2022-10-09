@@ -1,4 +1,4 @@
-package com.github.tantalor93;
+package com.github.tantalor93.allunique3sum;
 
 import java.util.ArrayList;
 import java.util.Arrays;

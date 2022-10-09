@@ -1,4 +1,4 @@
-package com.github.tantalor93;
+package com.github.tantalor93.reversedigits;
 
 /*
 Given a 32-bit signed integer, reverse digits of an integer.

@@ -1,4 +1,4 @@
-package com.github.tantalor93;
+package com.github.tantalor93.longestcommonprefixstrings;
 
 /*
 Write a function to find the longest common prefix string amongst an array of strings.

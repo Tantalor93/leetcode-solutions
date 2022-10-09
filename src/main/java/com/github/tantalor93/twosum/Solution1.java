@@ -1,6 +1,5 @@
-package com.github.tantalor93.sum2;
+package com.github.tantalor93.twosum;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 /*Given an array of integers, return indices of the two numbers such that they add up to a specific target.
