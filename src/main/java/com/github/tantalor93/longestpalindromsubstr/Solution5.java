@@ -28,10 +28,9 @@ public class Solution5 {
                     break;
                 }
             }
-        }
-        for(var i = 1; i < s.length(); i++) {
-            var left = i-1;
-            var right = i;
+
+            left = i-1;
+            right = i;
             while(left >= 0 && right < s.length()) {
                 if(s.charAt(left) == s.charAt(right)) {
                     if(max < right-left+1) {
@@ -45,10 +44,8 @@ public class Solution5 {
                     break;
                 }
             }
-
         }
         return s.substring(maxLeft, maxRight+1);
-
     }
 
 }

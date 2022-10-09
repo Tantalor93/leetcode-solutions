@@ -21,15 +21,17 @@ public class Solution3 {
             return 0;
         }
         var max = 1;
+        var set = new HashSet<Character>();
+        var start = 0;
         for(var i = 0; i < s.length(); i++) {
-            var set = new HashSet<Character>();
-            for(var j=i; j >= 0; j--) {
-                var c = i-j+1;
-                if(set.contains(s.charAt(j))) {
-                    break;
+            if(!set.add(s.charAt(i))) {
+                while(s.charAt(start) != s.charAt(i)) {
+                    set.remove(s.charAt(start));
+                    start++;
                 }
-                set.add(s.charAt(j));
-                max = Math.max(max, c);
+                start++;
+            } else {
+                max = Math.max(i-start+1, max);
             }
         }
         return max;

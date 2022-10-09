@@ -22,6 +22,8 @@ import java.util.List;
  * ]
  */
 public class Solution15 {
+    // pouzijeme postup ze si prvni setridime cisla v poli a pak muzeme postupne fixovat prvni cislo z trojice a na posledni
+    // dve cisla z trojice muzeme zjistit pomoci techniky dvou pointeru (zepredu a zezadu)
     public static List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> list = new ArrayList<>();
