@@ -1,11 +1,13 @@
 package com.github.tantalor93.longestconsecutiveseq;
 
 import java.util.HashSet;
+import java.util.PriorityQueue;
 import java.util.Set;
 
 public class Solution128 {
 // pouziju Set do ktereho si nahazim vsechny prvky a pak projdu set a budu v tom setu hledat prvky i-1, i-2,...
 	public int longestConsecutive(int[] nums) {
+		PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
 		Set<Integer> set = new HashSet<>();
 		for(int i : nums) {
 			set.add(i);
