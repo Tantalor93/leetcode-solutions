@@ -1,5 +1,6 @@
 package com.github.tantalor93.jumpgame;
 
+// https://leetcode.com/problems/jump-game-ii/
 public class Solution45 {
 	// pomoci dynamickeho programovani a memoizace si napocitam pole kde tmp[i] je nejmensi pocet skoku do indexu i
 	public int jump(int[] nums) {

@@ -3,6 +3,7 @@ package com.github.tantalor93.generateparenthesis;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://leetcode.com/problems/generate-parentheses/
 public class Solution22 {
 	public static List<String> generateParenthesis(int n) {
 		var l = new ArrayList<String>();

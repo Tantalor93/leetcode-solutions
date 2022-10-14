@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// https://leetcode.com/problems/group-anagrams/
 public class Solution49 {
 
 	// v kazdem stringu si seradim pismena a pak ty stringy budu hazet do mapy a pocitat si pocet

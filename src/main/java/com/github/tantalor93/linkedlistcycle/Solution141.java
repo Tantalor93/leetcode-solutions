@@ -2,6 +2,7 @@ package com.github.tantalor93.linkedlistcycle;
 
 import com.github.tantalor93.ListNode;
 
+// https://leetcode.com/problems/linked-list-cycle/
 public class Solution141 {
 	public boolean hasCycle(ListNode head) {
 		var slow = head;

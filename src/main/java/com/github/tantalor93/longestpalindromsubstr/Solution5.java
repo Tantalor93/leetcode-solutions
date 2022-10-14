@@ -1,5 +1,6 @@
 package com.github.tantalor93.longestpalindromsubstr;
 
+// https://leetcode.com/problems/longest-palindromic-substring/
 public class Solution5 {
 
     // expanding centers technique, palindromy jsou bud liche velikosti (centrum palindromu je jeden znak) nebo sude (centrem palindromu jsou dva znaky)

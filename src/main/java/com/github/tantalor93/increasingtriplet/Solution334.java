@@ -1,5 +1,6 @@
 package com.github.tantalor93.increasingtriplet;
 
+// https://leetcode.com/problems/increasing-triplet-subsequence/
 public class Solution334 {
 	// budu si drzet dva ukazatele a ty budu kontrolovat jestli soucasne cislo v iteraci nahodou neni mensi nez dane cislo, pokud ano, tak
 	// tim cislem prerazim ten ukazatel

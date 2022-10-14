@@ -1,5 +1,6 @@
 package com.github.tantalor93.breakpalindrome;
 
+// https://leetcode.com/problems/break-a-palindrome/
 public class Solution1328 {
 
 	// budu iterovat zleva a najdu prvni pismeno, ktere neni 'a', pokud takove nenexistuje tak jako posledni pismeno dam 'b'

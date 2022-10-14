@@ -1,5 +1,6 @@
 package com.github.tantalor93.longestincreasingsequence;
 
+// https://leetcode.com/problems/longest-increasing-subsequence/
 public class Solution300 {
 	// usage of dynamic programming tmp[i] represents the LIS from nums[0..i], we will count the numbers
 	// from 0 index and for each i index we will go through previous indexes and remember the max

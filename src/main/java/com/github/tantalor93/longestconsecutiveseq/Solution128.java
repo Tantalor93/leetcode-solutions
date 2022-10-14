@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+// https://leetcode.com/problems/longest-consecutive-sequence/
 public class Solution128 {
 // pouziju Set do ktereho si nahazim vsechny prvky a pak projdu set a budu v tom setu hledat prvky i-1, i-2,...
 	public int longestConsecutive(int[] nums) {

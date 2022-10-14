@@ -1,5 +1,6 @@
 package com.github.tantalor93.besttimetobuyandsellstock;
 
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 public class Solution121 {
 
 	// technika dvou promennych, budu si pamatovat minimalni buy a budu si pamatovat maxprofit
