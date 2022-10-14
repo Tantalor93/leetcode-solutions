@@ -3,6 +3,7 @@ package com.github.tantalor93.validanagram;
 import java.util.HashMap;
 import java.util.Map;
 
+// https://leetcode.com/problems/valid-anagram/
 public class Solution242 {
 	public boolean isAnagram(String s, String t) {
 		if(s.length() != t.length()) {

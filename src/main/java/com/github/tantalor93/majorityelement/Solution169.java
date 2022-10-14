@@ -3,6 +3,7 @@ package com.github.tantalor93.majorityelement;
 import java.util.HashMap;
 import java.util.Map;
 
+// https://leetcode.com/problems/majority-element/
 public class Solution169 {
 	public int majorityElement(int[] nums) {
 		Map<Integer, Integer> map = new HashMap<>();

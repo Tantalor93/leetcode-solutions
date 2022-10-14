@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+// https://leetcode.com/problems/top-k-frequent-elements/
 public class Solution347 {
 
 	// prvni si napocitam mapu kde klic je prvek v poli a hodnota je jeho frequence v poli

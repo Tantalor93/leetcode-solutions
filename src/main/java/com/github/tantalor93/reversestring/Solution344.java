@@ -1,10 +1,6 @@
 package com.github.tantalor93.reversestring;
 
-//Write a function that takes a string as input and returns the string reversed.
-//
-//        Example:
-//        Given s = "hello", return "olleh".
-
+// https://leetcode.com/problems/reverse-string/
 public class Solution344 {
 
     public String reverseString(String s) {

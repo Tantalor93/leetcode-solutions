@@ -1,5 +1,6 @@
 package com.github.tantalor93.validpalindrome;
 
+// https://leetcode.com/problems/valid-palindrome/
 public class Solution125 {
 
 	public boolean isPalindrome(String s) {

@@ -1,5 +1,6 @@
 package com.github.tantalor93.search2dmatrix;
 
+// https://leetcode.com/problems/search-a-2d-matrix-ii/
 public class Solution240 {
 	// iteruji pres prvni radek a na sloupce ktere by mohli obsahovat vysledek aplikuji binary search = O(m*logn) complexity
 	public boolean searchMatrix(int[][] matrix, int target) {

@@ -1,5 +1,6 @@
 package com.github.tantalor93.productarrayexceptself;
 
+// https://leetcode.com/problems/product-of-array-except-self/
 public class Solution238 {
 	public int[] productExceptSelf(int[] nums) {
 		int[] forward = new int[nums.length];

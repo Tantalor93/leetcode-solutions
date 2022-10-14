@@ -1,5 +1,6 @@
 package com.github.tantalor93.maximalsquare;
 
+// https://leetcode.com/problems/maximal-square/
 public class Solution221 {
 
 	// reseno pomoci dynamickeho programovani, memoizuji predchozi vysledky a soucasnou hodnotu spocitam jako

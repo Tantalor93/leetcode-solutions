@@ -1,23 +1,6 @@
 package com.github.tantalor93.reversedigits;
 
-/*
-Given a 32-bit signed integer, reverse digits of an integer.
-
-Example 1:
-
-Input: 123
-Output: 321
-Example 2:
-
-Input: -123
-Output: -321
-Example 3:
-
-Input: 120
-Output: 21
-Note:
-Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^(31),  2^(31 − 1)]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
- */
+// https://leetcode.com/problems/reverse-integer/
 public class Solution7 {
 
     // funguje to tak ze vezmu kladnou hodnotu X a budu postupne pocitat res = res * 10 + (val%10) a zmensim val/10, dale musim kontrolovat ze mi

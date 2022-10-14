@@ -5,26 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Node {
-	public int val;
-	public Node left;
-	public Node right;
-	public Node next;
-
-	public Node() {}
-
-	public Node(int _val) {
-		val = _val;
-	}
-
-	public Node(int _val, Node _left, Node _right, Node _next) {
-		val = _val;
-		left = _left;
-		right = _right;
-		next = _next;
-	}
-};
-
+// https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 public class Solution116 {
 	// udelam DFS s tim ze si budu posilat uroven stromu, nasledne to prasknu do mapy, kde klic je uroven a hodnota je seznam vsech nodu na stejne urovni
 	public Node connect(Node root) {
