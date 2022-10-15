@@ -17,7 +17,6 @@ public class Solution637 {
             this.n = n;
             this.sum = sum;
         }
-
     }
 
     public List<Double> averageOfLevels(TreeNode root) {
@@ -38,6 +37,5 @@ public class Solution637 {
 
         goAvg(node.left, level+1, list);
         goAvg(node.right, level+1, list);
-
     }
 }

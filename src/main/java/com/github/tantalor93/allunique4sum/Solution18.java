@@ -6,7 +6,7 @@ import java.util.List;
 
 // https://leetcode.com/problems/4sum/
 public class Solution18 {
-    // rozsirene reseni pro 3sum, pridame jeden cyklus
+    // rozsirene reseni pro 3sum, pridame jeden cyklus, prvni musime ale zase setridit cisla!
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums);
 
