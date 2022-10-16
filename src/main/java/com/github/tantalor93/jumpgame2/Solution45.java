@@ -1,4 +1,4 @@
-package com.github.tantalor93.jumpgame;
+package com.github.tantalor93.jumpgame2;
 
 // https://leetcode.com/problems/jump-game-ii/
 public class Solution45 {

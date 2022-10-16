@@ -31,27 +31,63 @@ public class Sort {
         return array;
     }
 
-    private static void doQuickSort(int[] array, int start, int end) {
-        if (!(start < end)) return;
-        int pivot = array[start];
-        int pivotIndex = start;
-        for (int i = start + 1; i <= end; i++) {
-            if(array[i] < pivot) {
-                flip(array, pivotIndex, pivotIndex+1);
-                if (pivotIndex + 1 != i)  {
-                    flip(array, pivotIndex, i);
-                }
-                pivotIndex++;
+    private static void doQuickSort(int[] arr, int start, int end) {
+        if(start >= end) {
+            return;
+        }
+
+        flip(arr, start, end);
+
+        var j = start;
+        for(var i = start; i < end; i++) {
+            if(arr[i] < arr[end]) {
+                flip(arr, i, j);
+                j++;
             }
         }
-        doQuickSort(array, start, pivotIndex - 1);
-        doQuickSort(array, pivotIndex + 1, end);
-
+        flip(arr, j, end);
+        doQuickSort(arr, start, j-1);
+        doQuickSort(arr, j+1, end);
     }
 
     private static void flip(int[] array, int i, int j) {
         int tmp = array[j];
         array[j] = array[i];
         array[i] = tmp;
+    }
+
+    public static int[] mergeSort(int[] array) {
+        if(array.length < 2) {
+            return array;
+        }
+        var mid = array.length/2;
+        var left = new int[mid];
+        var right = new int[array.length-mid];
+        for(var i = 0; i < mid; i++) {
+            left[i] = array[i];
+        }
+        for(var i = mid; i < array.length; i++) {
+            right[i-mid] = array[i];
+        }
+        return merge(mergeSort(left), mergeSort(right));
+    }
+
+    private static int[] merge(int[] arr1, int[] arr2)  {
+        var res = new int[arr1.length + arr2.length];
+
+        var l = 0;
+        var r = 0;
+        for(var i = 0; i < res.length; i++){
+            if(l >= arr1.length) {
+                res[i] = arr2[r++];
+            } else if(r >= arr2.length) {
+                res[i] = arr1[l++];
+            } else if(arr1[l] < arr2[r]) {
+                res[i] = arr1[l++];
+            } else {
+                res[i] = arr2[r++];
+            }
+        }
+        return res;
     }
 }
