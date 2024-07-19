@@ -5,53 +5,41 @@ import com.github.tantalor93.ListNode;
 // https://leetcode.com/problems/add-two-numbers/
 public class Solution2 {
 
-    // budu iterovat seznamy a pokazde spocitam carry=(val1+val2+carry)%10 a soucasnou hodnotu value=(val1+val2+carry)/10,
-    // slozitost je O(n) a pametova O(1)
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if(l1 == null || l2 == null) {
-            return l1 == null? l2 : l1;
-        }
-        ListNode start = null;
-        var carry = 0;
-        var it1 = l1;
-        var it2 = l2;
-        ListNode prev = null;
-        while(it1 != null || it2 != null) {
-            if(it1 != null && it2 != null) {
-                var n = new ListNode((it1.val + it2.val+carry)%10);
-                carry = (it1.val+it2.val+carry)/10;
-                if(start == null) {
-                    start = n;
-                }
-                if(prev != null) {
-                    prev.next = n;
-                }
-                prev = n;
-                it1 = it1.next;
-                it2 = it2.next;
+        return addTwoNumbersWithCarry(l1, l2, 0);
+    }
+
+    private ListNode addTwoNumbersWithCarry(ListNode l1, ListNode l2, int carry) {
+        if(l1 == null && l2 == null) {
+            if(carry != 0) {
+                return new ListNode(carry);
             }
-            if(it1 != null && it2 == null) {
-                var n = new ListNode((it1.val +carry)%10);
-                carry = (it1.val+carry)/10;
-                if(prev != null) {
-                    prev.next = n;
-                }
-                prev = n;
-                it1 = it1.next;
-            }
-            if(it2 != null && it1 == null) {
-                var n = new ListNode((it2.val +carry)%10);
-                carry = (it2.val+carry)/10;
-                if(prev != null) {
-                    prev.next = n;
-                }
-                prev = n;
-                it2 = it2.next;
-            }
+            return null;
         }
-        if(carry != 0) {
-            prev.next = new ListNode(carry);
+        if(l1 == null) {
+            if(carry != 0) {
+                var newCarry = (l2.val + carry)/10;
+                var val = (l2.val + carry)%10;
+                var node = new ListNode(val);
+                node.next = addTwoNumbersWithCarry(l1, l2.next, newCarry);
+                return node;
+            }
+            return l2;
         }
-        return start;
+        if(l2 == null) {
+            if(carry != 0) {
+                var newCarry = (l1.val + carry)/10;
+                var val = (l1.val + carry)%10;
+                var node = new ListNode(val);
+                node.next = addTwoNumbersWithCarry(l1.next, l2, newCarry);
+                return node;
+            }
+            return l1;
+        }
+        var newCarry = (l1.val + l2.val + carry)/10;
+        var val = (l1.val + l2.val + carry)%10;
+        var node = new ListNode(val);
+        node.next = addTwoNumbersWithCarry(l1.next, l2.next, newCarry);
+        return node;
     }
 }
