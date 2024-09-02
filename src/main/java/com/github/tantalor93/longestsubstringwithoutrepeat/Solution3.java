@@ -6,24 +6,21 @@ import java.util.Set;
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
 public class Solution3 {
 
-    public int lengthOfLongestSubstring(String s) {
-        if(s.isEmpty()) {
-            return 0;
-        }
-        var max = 1;
-        var set = new HashSet<Character>();
-        var start = 0;
-        for(var i = 0; i < s.length(); i++) {
-            if(!set.add(s.charAt(i))) {
-                while(s.charAt(start) != s.charAt(i)) {
-                    set.remove(s.charAt(start));
-                    start++;
-                }
-                start++;
-            } else {
-                max = Math.max(i-start+1, max);
-            }
-        }
-        return max;
-    }
+	public int lengthOfLongestSubstring(String s) {
+		var left = 0;
+		var right = 0;
+		var longest = 0;
+		var set = new HashSet<Character>();
+		while (right < s.length()) {
+			if (!set.contains(s.charAt(right))) {
+				set.add(s.charAt(right));
+				right++;
+				longest = Math.max(longest, right - left);
+			} else {
+				set.remove(s.charAt(left));
+				left++;
+			}
+		}
+        return longest;
+	}
 }
