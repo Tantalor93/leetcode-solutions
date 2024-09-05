@@ -11,8 +11,6 @@ public class Solution56 {
 	public int[][] merge(int[][] intervals) {
 		Arrays.sort(intervals, Comparator.comparingInt((int[] interval) -> interval[0]));
 
-		Arrays.sort(intervals);
-
 		LinkedList<int[]> list = new LinkedList<>();
 		list.add(intervals[0]);
 		for(var i = 1; i< intervals.length; i++) {
